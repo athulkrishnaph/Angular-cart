@@ -1,0 +1,23 @@
+.cart-item-quantity{
+    button{
+        border: 1px solid;
+        border-radius: 50%;
+        width: 20px;
+        margin: 0px 5px;
+    }
+}
+.remove-button{
+    padding: 2px 4px;
+    background-color: white;
+    color: red;
+}
+.place-order-button{
+    padding: 2px 4px;
+    background-color: white;
+    color: green;
+}
+.checkout-section{
+display: flex;
+justify-content: space-between;
+align-items: center
+};

@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router'; // Import Router
 import { CartService } from '../../services/cart.service';
 import { Product } from '../../models/product';
+import { Subscription } from 'rxjs';
 
 interface CartItem {
   product: Product;
@@ -14,17 +16,24 @@ interface CartItem {
   templateUrl: './shopping-cart.component.html',
   styleUrl: './shopping-cart.component.css'
 })
-export class ShoppingCartComponent implements OnInit {
+export class ShoppingCartComponent implements OnInit, OnDestroy {
   items: CartItem[] = [];
   total = 0;
+  private cartSubscription: Subscription | undefined;
 
-  constructor(private cartService: CartService) {}
+  constructor(private cartService: CartService, private router: Router) {}
 
   ngOnInit() {
-    this.cartService.cartItems$.subscribe(items => {
+    this.cartSubscription = this.cartService.cartItems$.subscribe(items => {
       this.items = items;
       this.total = this.cartService.getTotal();
     });
+  }
+
+  ngOnDestroy(): void {
+    if (this.cartSubscription) {
+      this.cartSubscription.unsubscribe();
+    }
   }
 
   remove(productId: number) {
@@ -49,4 +58,9 @@ export class ShoppingCartComponent implements OnInit {
     const item = this.items.find(i => i.product.id === productId);
     return item ? item.quantity : 0;
   }
+  placeOrder = () => {
+  alert('Order placed successfully!');
+  this.cartService.clearCart(); // Clear the cart
+  this.router.navigate(['/']); // Redirect to home page
+}
 }

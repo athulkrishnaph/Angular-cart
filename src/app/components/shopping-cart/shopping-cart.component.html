@@ -17,7 +17,10 @@
     </div>
     <button (click)="remove(item.product.id)" class="remove-button">Remove</button>
   </div>
-  <h3 style="margin-top: 1rem;">Total: {{ total | currency:'INR' }}</h3>
+  <div class="checkout-section">
+      <h3 style="margin-top: 1rem;">Total: {{ total | currency:'INR' }}</h3>
+      <button (click)="placeOrder()" class="place-order-button">Place Order</button>
+  </div>
 </div>
 
 <ng-template #empty>

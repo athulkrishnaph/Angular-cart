@@ -49,7 +49,11 @@ export class CartService {
     const item = currentItems.find(item => item.product.id === productId);
     if (item) {
       item.quantity = quantity;
-      this.cartItems.next([...currentItems]);
+      if (item.quantity <= 0) { // Ensure quantity doesn't go below 0, remove if it does
+        this.removeFromCart(productId);
+      } else {
+        this.cartItems.next([...currentItems]);
+      }
     }
   }
 
@@ -59,5 +63,9 @@ export class CartService {
 
   getTotalItems(): number {
     return this.cartItems.value.reduce((sum, item) => sum + item.quantity, 0);
+  }
+
+  clearCart() {
+    this.cartItems.next([]);
   }
 }
