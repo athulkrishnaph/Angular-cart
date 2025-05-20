@@ -1,0 +1,25 @@
+<div class="product-list-container">
+  <h2>Our Products</h2>
+  <ul class="product-grid">
+    <li *ngFor="let product of products" class="product-card">
+      <div class="product-image">
+        <img [src]="product.imageUrl" [alt]="product.name">
+      </div>
+      <div class="product-details">
+        <h3 style="display: flex; align-items: center; justify-content: center;" class="product-name">
+          <a [routerLink]="['/product-details', product.id]">{{ product.name }}</a>
+        </h3>
+        <p style="display: flex; align-items: center; justify-content: center;" class="product-price">{{ product.price | currency:'INR' }}</p>
+        <p style="display: flex; align-items: center; justify-content: center;" class="description">{{ product.description }}</p>
+        <div class="product-actions">
+          <button (click)="addToCart(product)" class="add-to-cart-button">Add to Cart</button>
+          <div class="cart-counter" *ngIf="getProductCountInCart(product.id) > 0">
+            <button (click)="decrementCartCount(product)" class="quantity-button">-</button>
+            <span>{{ getProductCountInCart(product.id) }}</span>
+            <button (click)="incrementCartCount(product)" class="quantity-button">+</button>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

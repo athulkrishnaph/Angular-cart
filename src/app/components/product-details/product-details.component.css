@@ -1,0 +1,101 @@
+/* product-details.component.css */
+
+.product-details-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* product-details.component.css */
+
+.product-image {
+  width: 300px; /* Adjust this value to your desired regular width */
+  /* Remove max-height */
+  overflow: hidden; /* To contain if aspect ratio makes it tall */
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-image img {
+  width: 100%; /* Make image fill the width of its container */
+  height: auto; /* Maintain aspect ratio */
+  display: block;
+  object-fit: contain; /* Or 'scale-down' if you prefer */
+}
+
+/* ... rest of your CSS */
+
+.product-info {
+  width: 100%;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.product-info h2 {
+  font-size: 2em;
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.product-info p.price {
+  font-size: 1.5em;
+  color: #007bff;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.product-info p.description {
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.quantity-control label {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.quantity-control input {
+  width: 60px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.product-info button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.product-info button:hover {
+  background-color: #45a049;
+}
+
+ng-template #loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  font-size: 1.2em;
+  color: #888;
+}
