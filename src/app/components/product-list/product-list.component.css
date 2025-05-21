@@ -1,25 +1,22 @@
-/* product-list.component.css */
-
 .product-list-container {
-  display: flex; /* Or grid, see below */
-  flex-direction: column; /* If using flex */
-  align-items: center; /* Center horizontally */
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
   padding: 20px;
 }
 
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Explicitly create 2 equal columns */
-  gap: 20px; /* Spacing between grid items */
-  width: 100%; /* Take full width of container */
-  max-width: 1200px; /* Optional: maximum width of the grid */
-  margin: 0 auto; /* Center the grid */
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto; 
 }
 
-/* Adjust for smaller screens if needed */
 @media (max-width: 768px) {
   .product-grid {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Fallback to responsive for smaller screens */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   }
 }
 
@@ -44,7 +41,6 @@
   width: 100%;
   height: 200px;
   margin-top: 20px;
-  /* overflow: hidden; */
 }
 
 .product-image img {

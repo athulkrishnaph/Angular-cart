@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router'; // Import Router
+import { Router } from '@angular/router';
 import { CartService } from '../../services/cart.service';
 import { Product } from '../../models/product';
 import { Subscription } from 'rxjs';
@@ -60,7 +60,7 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
   }
   placeOrder = () => {
   alert('Order placed successfully!');
-  this.cartService.clearCart(); // Clear the cart
-  this.router.navigate(['/']); // Redirect to home page
+  this.cartService.clearCart(); 
+  this.router.navigate(['/']);
 }
 }

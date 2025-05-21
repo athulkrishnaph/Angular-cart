@@ -31,7 +31,7 @@ export class CartService {
     if (item) {
       item.quantity--;
       if (item.quantity === 0) {
-        this.removeFromCart(productId); // Remove if quantity becomes 0
+        this.removeFromCart(productId);
       } else {
         this.cartItems.next([...currentItems]);
       }
@@ -49,7 +49,7 @@ export class CartService {
     const item = currentItems.find(item => item.product.id === productId);
     if (item) {
       item.quantity = quantity;
-      if (item.quantity <= 0) { // Ensure quantity doesn't go below 0, remove if it does
+      if (item.quantity <= 0) {
         this.removeFromCart(productId);
       } else {
         this.cartItems.next([...currentItems]);

@@ -56,25 +56,12 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
   }
 
   getProductDetails(id: number): void {
-    // Replace this with your actual product retrieval logic (e.g., from a service)
-    // Example using hardcoded data:
+
     this.product = this.products.find(p => p.id === id) || null;
     if (!this.product) {
       this.router.navigate(['/products']);
     }
 
-    /*
-    // Example using a ProductService (if you have one):
-    this.productSub = this.productService.getProduct(id).subscribe({
-      next: (product) => {
-        this.product = product;
-      },
-      error: (error) => {
-        console.error('Error fetching product:', error);
-        this.router.navigate(['/products']);
-      }
-    });
-    */
   }
 
   addToCart(): void {

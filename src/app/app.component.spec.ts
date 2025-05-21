@@ -14,16 +14,17 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'trial1' title`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('trial1');
-  });
-
-  it('should render title', () => {
+  it('should render the navbar brand ShopCart', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, trial1');
+    expect(compiled.querySelector('.navbar-brand')?.textContent).toContain('ShopCart');
+  });
+
+  it('should render router outlet', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('router-outlet')).not.toBeNull();
   });
 });

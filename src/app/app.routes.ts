@@ -5,7 +5,7 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
 
 export const routes: Routes = [
   { path: '', component: ProductListComponent },
-  { path: 'product-details/:id', component: ProductDetailsComponent }, // Changed path to 'product-details/:id'
+  { path: 'product-details/:id', component: ProductDetailsComponent },
   { path: 'cart', component: ShoppingCartComponent },
   { path: '**', redirectTo: '' },
 ];

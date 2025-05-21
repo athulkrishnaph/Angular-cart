@@ -1,5 +1,3 @@
-/* product-details.component.css */
-
 .product-details-container {
   display: flex;
   flex-direction: column;
@@ -9,25 +7,20 @@
   margin: 0 auto;
 }
 
-/* product-details.component.css */
-
 .product-image {
-  width: 300px; /* Adjust this value to your desired regular width */
-  /* Remove max-height */
-  overflow: hidden; /* To contain if aspect ratio makes it tall */
+  width: 300px; 
+  overflow: hidden;
   border-radius: 8px;
   margin-bottom: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .product-image img {
-  width: 100%; /* Make image fill the width of its container */
-  height: auto; /* Maintain aspect ratio */
+  width: 100%;
+  height: auto;
   display: block;
-  object-fit: contain; /* Or 'scale-down' if you prefer */
+  object-fit: contain;
 }
-
-/* ... rest of your CSS */
 
 .product-info {
   width: 100%;
