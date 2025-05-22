@@ -18,8 +18,6 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
   quantity: number = 1;
   private routeSub: Subscription | undefined;
   private productSub: Subscription | undefined;
-  notificationMessage: string = '';
-  isNotificationVisible: boolean = false;
 
   products: Product[] = [
     { id: 1, name: 'Fjallraven - Foldsack No. 1 Backpack', price: 109.95, description: "This backpack is crafted from Fjällräven’s signature G-1000 HeavyDuty Eco fabric, a durable and weather-resistant blend of recycled polyester and organic cotton. Featuring a deep navy blue color complemented by a natural leather logo patch, its design combines vintage charm with practicality. The top flap secures with leather strap details, adding a rugged aesthetic, while a drawstring closure underneath provides extra security. Inside, a spacious main compartment includes an internal laptop sleeve and smaller pockets to help organize your essentials, making it perfect for everyday use, school, work, or short trips. The iconic arctic fox logo on the front highlights the backpack’s authenticity and the brand’s quality.", imageUrl: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg' },
@@ -67,13 +65,9 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
   addToCart(): void {
     if (this.product) {
       this.cartService.addToCart(this.product, this.quantity);
-      this.notificationMessage = `Added ${this.quantity} ${this.product.name}(s) to cart!`;
-      this.isNotificationVisible = true;
       this.quantity = 1;
     }
   }
 
-  closeNotification() {
-    this.isNotificationVisible = false;
-  }
+
 }
