@@ -54,12 +54,20 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
   }
 
   getProductDetails(id: number): void {
-
     this.product = this.products.find(p => p.id === id) || null;
     if (!this.product) {
       this.router.navigate(['/products']);
     }
+  }
 
+  increaseQuantity() {
+    this.quantity++;
+  }
+
+  decreaseQuantity() {
+    if (this.quantity > 1) {
+      this.quantity--;
+    }
   }
 
   addToCart(): void {
@@ -68,6 +76,4 @@ export class ProductDetailsComponent implements OnInit, OnDestroy {
       this.quantity = 1;
     }
   }
-
-
 }
